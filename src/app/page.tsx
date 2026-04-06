@@ -162,14 +162,15 @@ function HeroSection() {
               </motion.span>
             </Button>
           </Link>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="px-8 py-6 text-lg border-2 border-zinc-200 hover:border-violet-300 hover:bg-violet-50/50 transition-all duration-300"
-          >
-            <Link href="/courses">Explore Courses</Link>
-          </Button>
+          <Link href="/courses">
+            <Button
+              variant="outline"
+              size="lg"
+              className="px-8 py-6 text-lg border-2 border-zinc-200 hover:border-violet-300 hover:bg-violet-50/50 transition-all duration-300"
+            >
+              Explore Courses
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Stats */}
@@ -509,21 +510,23 @@ function CTASection() {
               transition={{ delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-violet-600 hover:bg-white/90 px-8 py-6 text-lg shadow-xl"
-              >
-                <Link href="/study-abroad">Get Started Now</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg"
-              >
-                <Link href="/courses">View Courses</Link>
-              </Button>
+              <Link href="/study-abroad">
+                <Button
+                  size="lg"
+                  className="bg-white text-violet-600 hover:bg-white/90 px-8 py-6 text-lg shadow-xl"
+                >
+                  Get Started Now
+                </Button>
+              </Link>
+              <Link href="/courses">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg"
+                >
+                  View Courses
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

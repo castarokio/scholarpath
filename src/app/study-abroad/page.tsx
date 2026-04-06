@@ -255,15 +255,12 @@ export default function StudyAbroadPage() {
                       ))}
                     </ul>
 
-                    <Button
-                      asChild
-                      className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700"
-                    >
-                      <Link href={`/enroll?program=study-${program.id}`}>
+                    <Link href={`/enroll?program=study-${program.id}`} className="w-full">
+                      <Button className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700">
                         Enroll Now
                         <ArrowRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>

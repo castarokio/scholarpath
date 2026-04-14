@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Sarah Williams",
+    "title": "Founder & Lead Consultant",
+    "credentials": "ICEF Certified, PhD International Education",
+    "bio": "15+ years helping students achieve their study abroad dreams. Expert in scholarship strategy and university applications.",
+    "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+    "linkedin": "https://linkedin.com/in/sarahwilliams"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "title": "Senior Admissions Advisor",
+    "credentials": "Former Admissions Officer, ICEF Certified",
+    "bio": "Former university admissions insider with expertise in crafting winning applications and personal statements.",
+    "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    "linkedin": "https://linkedin.com/in/michaelchen"
+  },
+  {
+    "id": 3,
+    "name": "Amina Hassan",
+    "title": "Visa & Immigration Specialist",
+    "credentials": "Certified Immigration Consultant, 98% Visa Success",
+    "bio": "Expert in student visa processes for USA, UK, Canada, and Australia. Known for meticulous documentation preparation.",
+    "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+    "linkedin": "https://linkedin.com/in/aminahassan"
+  },
+  {
+    "id": 4,
+    "name": "Carlos Rodriguez",
+    "title": "Scholarship Strategist",
+    "credentials": "Scholarship Recipient turned Advisor, MBA",
+    "bio": "Won full scholarship to study abroad and now helps others do the same. Expert in finding hidden scholarship opportunities.",
+    "photo": "https://images.unsplash.com/photo-1519085360751-6a1dd54c5b5e?w=400&h=400&fit=crop&crop=face",
+    "linkedin": "https://linkedin.com/in/carlosrodriguez"
+  }
+]

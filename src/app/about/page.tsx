@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   GraduationCap,
   Target,
@@ -13,8 +13,11 @@ import {
   Mail,
   MessageCircle,
   ArrowRight,
+  Link as LinkIcon,
+  Award,
 } from "lucide-react";
 import Link from "next/link";
+import teamData from "@/content/team.json";
 
 const values = [
   {
@@ -207,8 +210,8 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-zinc-900">Success Stories</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {testimonials.slice(0, 3).map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -239,11 +242,109 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <Link href="/success-stories">
+              <Button size="lg" className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white">
+                Read More Success Stories
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section id="team" className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <Badge className="mb-4" variant="secondary">Our Team</Badge>
+            <h2 className="text-3xl font-bold text-zinc-900 mb-4">Meet Your Advisors</h2>
+            <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+              Our certified consultants have helped hundreds of students achieve their study abroad dreams.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamData.map((member, index) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow group">
+                  <CardContent className="p-6 text-center">
+                    {/* Photo */}
+                    <div className="mx-auto mb-4 w-32 h-32 rounded-full overflow-hidden ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all">
+                      <Avatar className="w-full h-full">
+                        <AvatarImage src={member.photo} alt={member.name} />
+                        <AvatarFallback className="bg-gradient-to-br from-violet-600 to-indigo-600 text-white text-3xl">
+                          {member.name.split(" ").map(n => n[0]).join("")}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+
+                    {/* Info */}
+                    <h3 className="font-bold text-lg text-zinc-900 mb-1">{member.name}</h3>
+                    <p className="text-sm text-primary font-medium mb-2">{member.title}</p>
+
+                    {/* Credentials */}
+                    <div className="flex items-center justify-center gap-1 mb-3">
+                      <Award className="w-4 h-4 text-amber-500" />
+                      <span className="text-xs text-zinc-500">{member.credentials}</span>
+                    </div>
+
+                    {/* Bio */}
+                    <p className="text-sm text-zinc-600 mb-4 line-clamp-3">
+                      {member.bio}
+                    </p>
+
+                    {/* LinkedIn */}
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-primary transition-colors"
+                    >
+                      <LinkIcon className="w-4 h-4" />
+                      Connect on LinkedIn
+                    </a>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Link href="/about#contact">
+              <Button variant="outline">
+                Book a Consultation with Our Team
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20">
+      <section id="contact" className="py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

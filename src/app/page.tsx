@@ -16,6 +16,7 @@ import {
   CheckCircle2,
   Star,
 } from "lucide-react";
+import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 
 // Floating particles component
 function FloatingParticles() {
@@ -542,6 +543,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <WhyChooseUsSection />
+      <TestimonialsCarousel />
       <CTASection />
     </div>
   );

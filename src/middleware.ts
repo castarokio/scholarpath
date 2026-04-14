@@ -1,6 +1,9 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
+// List of allowed admin emails
+const ADMIN_EMAILS = ["elwehch123@gmail.com", "castarokio@gmail.com"];
+
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
     request,
@@ -39,6 +42,12 @@ export async function middleware(request: NextRequest) {
   ) {
     if (!user) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
+    }
+
+    // Check if user is an admin
+    if (!ADMIN_EMAILS.includes(user.email || "")) {
+      await supabase.auth.signOut();
+      return NextResponse.redirect(new URL("/admin/login?error=not_authorized", request.url));
     }
   }
 

@@ -51,27 +51,6 @@ export default function AdminLoginPage() {
     }
   };
 
-  const handleSignUp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    try {
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (error) throw error;
-
-      setSuccess("Account created! You can now sign in.");
-      setMode("signin");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to sign up");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -160,11 +139,7 @@ export default function AdminLoginPage() {
 
             <form
               onSubmit={
-                mode === "signin"
-                  ? handleSignIn
-                  : mode === "signup"
-                  ? handleSignUp
-                  : handleForgotPassword
+                mode === "signin" ? handleSignIn : handleForgotPassword
               }
               className="space-y-6"
             >

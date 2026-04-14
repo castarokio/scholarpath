@@ -19,16 +19,16 @@ import {
   Loader2,
 } from "lucide-react";
 
-interface Program {
+interface Scholarship {
   id: number;
   title: string;
+  country: string;
   description: string;
-  price: number;
-  duration: string;
-  spots: number;
-  popular: boolean;
-  features: string[];
-  active: boolean;
+  benefits: string;
+  amount: string;
+  deadline: string;
+  requirements: string[];
+  status: "open" | "closed";
 }
 
 const destinations = [
@@ -41,29 +41,26 @@ const destinations = [
 ];
 
 export default function StudyAbroadPage() {
-  const [programs, setPrograms] = useState<Program[]>([]);
+  const [scholarships, setScholarships] = useState<Scholarship[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchPrograms();
+    fetchScholarships();
   }, []);
 
-  const fetchPrograms = async () => {
+  const fetchScholarships = async () => {
     try {
-      const response = await fetch("/api/programs");
-      if (!response.ok) throw new Error("Failed to fetch programs");
+      const response = await fetch("/api/scholarships");
+      if (!response.ok) throw new Error("Failed to fetch scholarships");
       const data = await response.json();
-      setPrograms(data.programs || []);
+      setScholarships(data.scholarships || []);
     } catch (error) {
-      console.error("Error fetching programs:", error);
+      console.error("Error fetching scholarships:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  const formatPrice = (price: number) => {
-    return `$${price}`;
-  };
 
   if (loading) {
     return (
@@ -196,8 +193,8 @@ export default function StudyAbroadPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4">Programs</Badge>
-            <h2 className="text-3xl font-bold text-zinc-900 mb-4">Choose Your Path</h2>
+            <Badge className="mb-4">Scholarships</Badge>
+            <h2 className="text-3xl font-bold text-zinc-900 mb-4">Available Scholarships</h2>
             <p className="text-zinc-600 max-w-2xl mx-auto">
               Select the package that fits your needs. All programs include personalized
               support from our expert consultants.
@@ -205,71 +202,82 @@ export default function StudyAbroadPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {programs.map((program, index) => (
+            {scholarships.map((scholarship, index) => (
               <motion.div
-                key={program.id}
+                key={scholarship.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className={`relative h-full overflow-hidden ${
-                  program.popular ? "border-violet-300 shadow-lg shadow-violet-600/10" : ""
+                  scholarship.status === "open" ? "border-violet-300 shadow-lg shadow-violet-600/10" : "opacity-75"
                 }`}>
-                  {program.popular && (
-                    <div className="absolute top-0 right-0">
-                      <Badge className="rounded-tl-none rounded-br-none rounded-tr-xl rounded-bl-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white border-0">
-                        <Star className="w-3 h-3 mr-1 fill-white" />
-                        Popular
-                      </Badge>
-                    </div>
-                  )}
+                  <div className="absolute top-0 right-0">
+                    <Badge className={`rounded-tl-none rounded-br-none rounded-tr-xl rounded-bl-xl border-0 ${
+                      scholarship.status === "open"
+                        ? "bg-emerald-500 text-white"
+                        : "bg-zinc-400 text-white"
+                    }`}>
+                      {scholarship.status === "open" ? "Open" : "Closed"}
+                    </Badge>
+                  </div>
 
                   <CardHeader className="pb-4">
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-3xl font-bold text-zinc-900">{formatPrice(program.price)}</span>
-                      <span className="text-zinc-500">one-time</span>
+                      <span className="text-2xl font-bold text-zinc-900">{scholarship.country}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-zinc-900">{program.title}</h3>
-                    <p className="text-zinc-600 text-sm mt-2">{program.description}</p>
+                    <h3 className="text-xl font-bold text-zinc-900">{scholarship.title}</h3>
+                    <p className="text-zinc-600 text-sm mt-2">{scholarship.description}</p>
                   </CardHeader>
 
                   <CardContent className="pt-0">
-                    <div className="flex items-center gap-4 text-sm text-zinc-500 mb-6">
+                    <div className="p-4 bg-violet-50 rounded-xl mb-4">
+                      <p className="text-sm font-semibold text-violet-900">Benefits:</p>
+                      <p className="text-sm text-violet-700">{scholarship.benefits}</p>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-sm text-zinc-500 mb-4">
                       <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {program.duration}
+                        <DollarSign className="w-4 h-4" />
+                        {scholarship.amount}
                       </div>
                       <div className="flex items-center gap-1">
-                        <Users className="w-4 h-4" />
-                        {program.spots} spots
+                        <Clock className="w-4 h-4" />
+                        Deadline: {scholarship.deadline}
                       </div>
                     </div>
 
-                    <ul className="space-y-3 mb-8">
-                      {program.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-violet-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-zinc-600 text-sm">{feature}</span>
+                    <ul className="space-y-2 mb-6">
+                      {scholarship.requirements.map((req) => (
+                        <li key={req} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-violet-600 flex-shrink-0 mt-0.5" />
+                          <span className="text-zinc-600 text-sm">{req}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <Link href={`/enroll?program=study-${program.id}`} className="w-full">
-                      <Button className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700">
-                        Enroll Now
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                    {scholarship.status === "open" ? (
+                      <Link href={`/enroll?scholarship=${scholarship.id}`} className="w-full">
+                        <Button className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700">
+                          Apply Now
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button disabled className="w-full" variant="outline">
+                        Applications Closed
                       </Button>
-                    </Link>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
 
-          {programs.length === 0 && (
+          {scholarships.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-zinc-500">No programs available at the moment.</p>
+              <p className="text-zinc-500">No scholarships available at the moment.</p>
             </div>
           )}
         </div>

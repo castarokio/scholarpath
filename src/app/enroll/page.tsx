@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export default function EnrollPage() {
+function EnrollForm() {
   const searchParams = useSearchParams();
   const program = searchParams.get("program");
   const course = searchParams.get("course");
@@ -98,7 +98,7 @@ export default function EnrollPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to submit enrollment");
+        throw new Error(data.details || data.error || "Failed to submit enrollment");
       }
 
       setIsSubmitted(true);
@@ -340,5 +340,17 @@ export default function EnrollPage() {
         </AnimatePresence>
       </div>
     </div>
+  );
+}
+
+export default function EnrollPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen pt-24 pb-12 bg-gradient-to-b from-violet-50/50 to-white flex items-center justify-center">
+        <div className="animate-pulse text-zinc-500">Loading...</div>
+      </div>
+    }>
+      <EnrollForm />
+    </Suspense>
   );
 }

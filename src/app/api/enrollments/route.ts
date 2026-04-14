@@ -1,5 +1,14 @@
 import { createClient } from "@/lib/supabase-server";
+import { createClient as createBrowserClient } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
+
+// Create a public client for non-authenticated operations
+const createPublicClient = () => {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+};
 
 // GET /api/enrollments - List all enrollments (admin only)
 export async function GET(request: NextRequest) {
@@ -57,7 +66,8 @@ export async function GET(request: NextRequest) {
 // POST /api/enrollments - Create new enrollment (public)
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
+    // Use public client for unauthenticated inserts
+    const supabase = createPublicClient();
     const body = await request.json();
 
     // Validate required fields
@@ -94,7 +104,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error("Supabase error:", error);
       return NextResponse.json(
-        { error: "Failed to create enrollment" },
+        { error: "Failed to create enrollment", details: error.message },
         { status: 500 }
       );
     }

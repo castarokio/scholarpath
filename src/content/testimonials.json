@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Ahmed Benali",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    "university": "University of Toronto",
+    "country": "Canada",
+    "quote": "Got full scholarship through ScholarPath guidance. Changed my life! The team helped me with everything from essay writing to visa preparation.",
+    "rating": 5,
+    "hasVideo": false
+  },
+  {
+    "id": 2,
+    "name": "Sarah Mohamed",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+    "university": "Imperial College London",
+    "country": "UK",
+    "quote": "From application to acceptance in 3 months. Professional service! My consultant was incredibly knowledgeable about UK universities.",
+    "rating": 5,
+    "hasVideo": true
+  },
+  {
+    "id": 3,
+    "name": "Maria Santos",
+    "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    "university": "University of Melbourne",
+    "country": "Australia",
+    "quote": "ScholarPath helped me secure a 75% scholarship to study in Australia. Their IELTS course was a game-changer.",
+    "rating": 5,
+    "hasVideo": false
+  },
+  {
+    "id": 4,
+    "name": "Omar Hassan",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    "university": "TU Munich",
+    "country": "Germany",
+    "quote": "I was confused about studying in Germany until ScholarPath clarified everything. They helped me find English-taught programs.",
+    "rating": 5,
+    "hasVideo": false
+  },
+  {
+    "id": 5,
+    "name": "Lisa Chen",
+    "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    "university": "Stanford University",
+    "country": "USA",
+    "quote": "The personalized attention I received was exceptional. My consultant understood my goals and matched me with perfect programs.",
+    "rating": 5,
+    "hasVideo": true
+  },
+  {
+    "id": 6,
+    "name": "David Okonkwo",
+    "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
+    "university": "University of Amsterdam",
+    "country": "Netherlands",
+    "quote": "From day one confusion to acceptance letter - ScholarPath made the journey smooth and exciting. Highly recommend!",
+    "rating": 5,
+    "hasVideo": false
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "category": "General",
+    "questions": [
+      {
+        "question": "What is ScholarPath?",
+        "answer": "ScholarPath is a comprehensive study abroad platform that provides personalized guidance, scholarship matching, and end-to-end support for students seeking international education opportunities."
+      },
+      {
+        "question": "How does ScholarPath work?",
+        "answer": "We start with a free consultation to understand your goals, then match you with suitable scholarships and universities. Our consultants guide you through every step from application to arrival."
+      },
+      {
+        "question": "Is ScholarPath free?",
+        "answer": "We offer a free Basic tier with scholarship matching and application checklists. Our Pro ($199) and Premium ($499) tiers provide additional services like application review and end-to-end support."
+      }
+    ]
+  },
+  {
+    "category": "Scholarships",
+    "questions": [
+      {
+        "question": "How do I find scholarships?",
+        "answer": "Use our advanced scholarship search filters to find opportunities by country, degree level, field of study, and funding type. Our AI matcher can also recommend scholarships based on your profile."
+      },
+      {
+        "question": "What types of scholarships are available?",
+        "answer": "We offer merit-based, need-based, and country-specific scholarships. Options range from partial funding to full rides covering tuition, living expenses, and travel."
+      },
+      {
+        "question": "What if my visa is rejected?",
+        "answer": "We provide comprehensive visa preparation support with a 98% success rate. If your visa is rejected, we'll help you understand the reasons, strengthen your application, and reapply with enhanced documentation."
+      }
+    ]
+  },
+  {
+    "category": "Application Process",
+    "questions": [
+      {
+        "question": "How long does the application process take?",
+        "answer": "Timeline varies by country and program, typically ranging from 3-6 months. We start early to ensure you meet all deadlines and have time for visa processing."
+      },
+      {
+        "question": "What documents do I need?",
+        "answer": "Common requirements include academic transcripts, language test scores (IELTS/TOEFL), statement of purpose, letters of recommendation, and financial documentation. We provide a customized checklist based on your target country."
+      }
+    ]
+  },
+  {
+    "category": "Payments & Refunds",
+    "questions": [
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept credit/debit cards via Stripe, bank transfers, and installment plans for Premium packages. All payments are secure and encrypted."
+      },
+      {
+        "question": "What is your refund policy?",
+        "answer": "We offer a 14-day money-back guarantee if we cannot match you with at least one suitable scholarship. Full terms are available in our Refund Policy page."
+      }
+    ]
+  }
+]

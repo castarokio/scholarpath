@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { CookieConsent } from "@/components/cookie-consent";
+import { FloatingHelpWidget } from "@/components/floating-help-widget";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -138,6 +139,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <CookieConsent />
+        <FloatingHelpWidget />
       </body>
     </html>
   );

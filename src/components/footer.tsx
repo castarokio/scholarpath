@@ -25,9 +25,9 @@ const footerLinks = {
   resources: [
     { label: "Resource Hub", href: "/resources" },
     { label: "Success Stories", href: "/success-stories" },
-    { label: "Visa Guide", href: "/resources#visa-guide" },
+    { label: "Visa Guide", href: "/visa-guide" },
+    { label: "Destinations", href: "/destinations" },
     { label: "FAQ", href: "/resources#faq" },
-    { label: "Blog", href: "/resources" },
   ],
   company: [
     { label: "About Us", href: "/about" },

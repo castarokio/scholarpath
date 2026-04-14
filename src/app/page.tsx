@@ -408,18 +408,26 @@ function WhyChooseUsSection() {
               <div className="relative bg-white rounded-3xl p-8">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="flex -space-x-3">
-                    {[...Array(4)].map((_, i) => (
+                    {[
+                      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+                      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+                      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+                      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
+                    ].map((avatar, i) => (
                       <motion.div
                         key={i}
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-200 to-indigo-200 border-2 border-white flex items-center justify-center"
+                        className="w-12 h-12 rounded-full border-2 border-white overflow-hidden"
                       >
-                        <span className="text-sm font-medium text-violet-700">
-                          {String.fromCharCode(65 + i)}
-                        </span>
+                        <img
+                          src={avatar}
+                          alt={`Student ${i + 1}`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
                       </motion.div>
                     ))}
                   </div>

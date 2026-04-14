@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Admin and private routes
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api
+
+# Sitemap
+Sitemap: https://scholarpath-nine.vercel.app/sitemap.xml
